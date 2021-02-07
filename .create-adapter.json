@@ -1,9 +1,9 @@
 {
-    "adapterName": "template",
-    "description": "Template for adapter development",
-    "authorName": "Author",
-    "authorGithub": "Author",
-    "authorEmail": "author@mail.com",
+    "adapterName": "bmejson",
+    "description": "Read JSON - BME sensor result from Wemos D1 mini webserver",
+    "authorName": "Daniel",
+    "authorGithub": "y24o2",
+    "authorEmail": "daniellangbehn@gmx.de",
     "gitRemoteProtocol": "HTTPS",
     "ci": "gh-actions",
     "dependabot": "yes",
@@ -21,7 +21,7 @@
     ],
     "adminReact": "no",
     "language": "JavaScript",
-    "title": "Template (JavaScript)",
+    "title": "BME JSON",
     "tools": [
         "ESLint",
         "type checking"
