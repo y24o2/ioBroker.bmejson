@@ -63,6 +63,12 @@ class Bmejson extends utils.Adapter {
                 }
             }
         });
+
+        adapter.terminate(
+            "done",
+            utils.EXIT_CODES.ADAPTER_REQUESTED_TERMINATION,
+        );
+
     }
 
 }
