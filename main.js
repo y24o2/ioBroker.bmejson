@@ -35,7 +35,7 @@ class Bmejson extends utils.Adapter {
                     let timestring = (new Date()).toISOString().replace("T", " ").split(".")[0];
                     try{
                         let data = {"timestamp": timestamp, "timestring": timestring, ...JSON.parse(body)}; 
-                        Object.keys(data).forEach((key) => {
+                        Object.keys(data).forEach(async (key) => {
                             await this.setObjectNotExistsAsync(key, {
                                 type: 'state',
                                 common: {
