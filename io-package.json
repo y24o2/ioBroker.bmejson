@@ -40,7 +40,6 @@
         "type": "general",
         "compact": true,
         "materialize": true,
-        "materializeTab": true,
         "supportCustoms": true,
         "dependencies": [
             {
