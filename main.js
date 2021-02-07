@@ -32,10 +32,16 @@ class Bmejson extends utils.Adapter {
             }
             else{
                 if(response.statusCode === 200){
-                    let timestamp = Math.floor(Date.now() / 1000);
+                    let timestamp = Date.now();
                     let timestring = (new Date()).toISOString().replace("T", " ").split(".")[0];
                     try{
-                        let data = {"timestamp": timestamp, "timestring": timestring, ...JSON.parse(body)}; 
+                        let data = {
+                            "sensorName": it.sensorName, 
+                            "sensorAddress": it.sensorAddress,
+                            "timestamp": timestamp,
+                            "timestring": timestring,
+                            ...JSON.parse(body)
+                        }; 
                         Object.keys(data).forEach(async (key) => {
                             await adapter.setObjectNotExistsAsync(key, {
                                 type: 'state',
