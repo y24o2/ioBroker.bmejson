@@ -1,0 +1,66 @@
+{
+    "common": {
+        "name": "template",
+        "version": "0.0.1",
+        "news": {
+            "0.0.1": {
+                "en": "initial release",
+                "de": "Erstveröffentlichung"
+            }
+        },
+        "title": "Template (JavaScript)",
+        "titleLang": {
+            "en": "Template (JavaScript)",
+            "de": "Vorlage (JavaScript)"
+        },
+        "desc": {
+            "en": "Template for adapter development",
+            "de": "Vorlage für die Adapterentwicklung"
+        },
+        "authors": [
+            "Author <author@mail.com>"
+        ],
+        "keywords": [
+            "ioBroker",
+            "Wemos D1mini",
+            "BME",
+            "BME280",
+            "BME680"
+        ],
+        "license": "MIT",
+        "platform": "Javascript/Node.js",
+        "main": "main.js",
+        "icon": "template.png",
+        "enabled": true,
+        "extIcon": "https://raw.githubusercontent.com/y24o2/ioBroker.bmejson/master/admin/template.png",
+        "readme": "https://github.com/y24o2/ioBroker.bmejson/blob/master/README.md",
+        "loglevel": "info",
+        "mode": "schedule",
+        "schedule": "*/5 * * * *",
+        "type": "general",
+        "compact": true,
+        "materialize": true,
+        "materializeTab": true,
+        "adminTab": {
+            "singleton": true,
+            "name": {
+                "en": "BME-JSON",
+                "de": "BME-JSON"
+            },
+            "link": "",
+            "fa-icon": "info"
+        },
+        "supportCustoms": true,
+        "dependencies": [
+            {
+                "js-controller": ">=2.0.0"
+            }
+        ]
+    },
+    "native": {
+        "adapterName": "new Adapter",
+        "adapterAddress": "10.0.0.5"
+    },
+    "objects": [],
+    "instanceObjects": []
+}
