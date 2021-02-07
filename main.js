@@ -26,50 +26,46 @@ class Bmejson extends utils.Adapter {
         let it = {"sensorName": this.config.sensorName, "sensorAddress": this.config.sensorAddress,};
         let adapter = this;
 
-        request("http://"+ it.sensorAddress+"/", function (error, response, body) {
-            if (error){
-                adapter.log.error('error[sensor='+it.sensorName+']:', error.message);
-            }
-            else{
-                if(response.statusCode === 200){
-                    let timestamp = Date.now();
-                    let timestring = (new Date()).toISOString().replace("T", " ").split(".")[0];
-                    try{
-                        let data = {
-                            "sensorName": it.sensorName, 
-                            "sensorAddress": it.sensorAddress,
-                            "timestamp": timestamp,
-                            "timestring": timestring,
-                            ...JSON.parse(body)
-                        }; 
-                        Object.keys(data).forEach(async (key) => {
-                            await adapter.setObjectNotExistsAsync(key, {
-                                type: 'state',
-                                common: {
-                                    name: key,
-                                    role: 'value',
-                                    read: true,
-                                    write: false,
-                                },
-                                native: {},
-                            });
-                    
-                            await adapter.setStateAsync(key, data[key]);
-                        });
-                    }
-                   catch(e){
-                        adapter.log.error('error[sensor='+it.sensorName+']:', e.message);
-                   }
+        try {
+            request("http://"+ it.sensorAddress+"/", function (error, response, body) {
+                if (error){
+                    adapter.log.error('error[sensor='+it.sensorName+']:', error.message);
                 }
-            }
-        });
-
-        setTimeout(() => {
-            adapter.terminate(
-                "done",
-                utils.EXIT_CODES.ADAPTER_REQUESTED_TERMINATION,
-            );
-        }, 3000);
+                else{
+                    if(response.statusCode === 200){
+                        let timestamp = Date.now();
+                        let timestring = (new Date()).toISOString().replace("T", " ").split(".")[0];
+                            let data = {
+                                "sensorName": it.sensorName, 
+                                "sensorAddress": it.sensorAddress,
+                                "timestamp": timestamp,
+                                "timestring": timestring,
+                                ...JSON.parse(body)
+                            }; 
+                            Object.keys(data).forEach(async (key) => {
+                                await adapter.setObjectNotExistsAsync(key, {
+                                    type: 'state',
+                                    common: {
+                                        name: key,
+                                        role: 'value',
+                                        read: true,
+                                        write: false,
+                                    },
+                                    native: {},
+                                });
+                        
+                                await adapter.setStateAsync(key, data[key]);
+                            });
+                    }
+                }
+            });
+        }
+        catch(e){
+            adapter.log.error('error[sensor='+it.sensorName+']:', e.message);
+        }
+        finally{
+            adapter.terminate("done", utils.EXIT_CODES.ADAPTER_REQUESTED_TERMINATION);
+        }
 
     }
 
