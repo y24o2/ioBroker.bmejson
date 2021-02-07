@@ -24,10 +24,11 @@ class Bmejson extends utils.Adapter {
         // Initialize your adapter here
 
         let it = {"sensorName": this.config.sensorName, "sensorAddress": this.config.sensorAddress,};
+        let adapter = this;
 
         request("http://"+ it.sensorAddress+"/", function (error, response, body) {
             if (error){
-                this.log.error('error[sensor='+it.sensorName+']:', error.message);
+                adapter.log.error('error[sensor='+it.sensorName+']:', error.message);
             }
             else{
                 if(response.statusCode === 200){
@@ -36,7 +37,7 @@ class Bmejson extends utils.Adapter {
                     try{
                         let data = {"timestamp": timestamp, "timestring": timestring, ...JSON.parse(body)}; 
                         Object.keys(data).forEach(async (key) => {
-                            await this.setObjectNotExistsAsync(key, {
+                            await adapter.setObjectNotExistsAsync(key, {
                                 type: 'state',
                                 common: {
                                     name: key,
@@ -47,11 +48,11 @@ class Bmejson extends utils.Adapter {
                                 native: {},
                             });
                     
-                            await this.setStateAsync(key, data[key]);
+                            await adapter.setStateAsync(key, data[key]);
                         });
                     }
                    catch(e){
-                        this.log.error('error[sensor='+it.sensorName+']:', e.message);
+                        adapter.log.error('error[sensor='+it.sensorName+']:', e.message);
                    }
                 }
             }
