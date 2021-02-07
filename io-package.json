@@ -41,15 +41,6 @@
         "compact": true,
         "materialize": true,
         "materializeTab": true,
-        "adminTab": {
-            "singleton": true,
-            "name": {
-                "en": "BME-JSON",
-                "de": "BME-JSON"
-            },
-            "link": "",
-            "fa-icon": "info"
-        },
         "supportCustoms": true,
         "dependencies": [
             {
