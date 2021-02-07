@@ -6,11 +6,11 @@ systemDictionary = {
         'en': 'Adapter settings for bmejson',
         'de': 'Adaptereinstellungen für bmejson'
     },
-    'option1': {
+    'sensorName': {
         'en': 'Sensor name',
         'de': 'Sensor Name'
     },
-    'option2': {
+    'sensorAddress': {
         'en': 'Sensor address',
         'de': 'Sensor Adresse'
     }

@@ -1,5 +1,7 @@
 .assets
 .git
+.gitignore
+.github
 .idea
 .vscode
 *.code-workspace
