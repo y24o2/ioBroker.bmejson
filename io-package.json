@@ -58,7 +58,7 @@
         ]
     },
     "native": {
-        "sensorName": "new Adapter",
+        "sensorName": "new Sensor",
         "sensorAddress": "10.0.0.5"
     },
     "objects": [],

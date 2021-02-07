@@ -1,6 +1,8 @@
 'use strict';
 
 const utils = require('@iobroker/adapter-core');
+const request = require('request');
+
 
 class Bmejson extends utils.Adapter {
 
