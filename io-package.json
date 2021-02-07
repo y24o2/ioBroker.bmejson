@@ -1,6 +1,6 @@
 {
     "common": {
-        "name": "template",
+        "name": "bmejson",
         "version": "0.0.1",
         "news": {
             "0.0.1": {
@@ -8,17 +8,17 @@
                 "de": "Erstveröffentlichung"
             }
         },
-        "title": "Template (JavaScript)",
+        "title": "BME JSON",
         "titleLang": {
-            "en": "Template (JavaScript)",
-            "de": "Vorlage (JavaScript)"
+            "en": "BME JSON",
+            "de": "BME JSON"
         },
         "desc": {
-            "en": "Template for adapter development",
-            "de": "Vorlage für die Adapterentwicklung"
+            "en": "Adapter to read data from Wemos D1 mini (Webserver) with BME Sensor",
+            "de": "Liest JSON-Daten vom Wemos D1 mini Webserver"
         },
         "authors": [
-            "Author <author@mail.com>"
+            "Author <daniellangbehn@gmx.de>"
         ],
         "keywords": [
             "ioBroker",
@@ -58,8 +58,8 @@
         ]
     },
     "native": {
-        "adapterName": "new Adapter",
-        "adapterAddress": "10.0.0.5"
+        "sensorName": "new Adapter",
+        "sensorAddress": "10.0.0.5"
     },
     "objects": [],
     "instanceObjects": []
