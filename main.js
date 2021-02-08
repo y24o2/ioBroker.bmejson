@@ -47,7 +47,7 @@ class Bmejson extends utils.Adapter {
                     },
                     native: {},
                 });
-                adapter.setStateAsync(key, data[key]);
+                adapter.setState(key, data[key]);
             }
         })
         .catch(e => {adapter.log.error('error[sensor='+it.sensorName+']:', e.message)})
