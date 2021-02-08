@@ -20,7 +20,8 @@
     "url": "https://github.com/y24o2/ioBroker.bmejson"
   },
   "dependencies": {
-    "@iobroker/adapter-core": "^2.4.0"
+    "@iobroker/adapter-core": "^2.4.0",
+    "axios": "^0.21.1"
   },
   "devDependencies": {
   },
